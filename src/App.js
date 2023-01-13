@@ -1,16 +1,32 @@
-import { ThemeProvider } from '@emotion/react';
+import React, {useState} from 'react'
+
+import { Box, createTheme, Stack, ThemeProvider } from "@mui/material";
 import Navbar from './components/Navbar';
+import Feed from './components/Feed';
+import Rightbar from './components/Rightbar';
+import Sidebar from './components/Sidebar';
 
 
 function App() {
-  <ThemeProvider>
+    const [mode, setMode] = useState("light");
 
-  </ThemeProvider>
+    const darkTheme = createTheme({
+      palette: {
+        mode: mode,
+      },
+    });
+
   return (
-    <div className="app">
-      <Navbar />
-      
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Box bgcolor={"background.default"} color={"text.primary"}>
+        <Navbar />
+        <Stack direction="row" justifyContent="space-between" spacing={2}>
+          <Sidebar />
+          <Feed/>
+          <Rightbar/>
+          </Stack>
+      </Box>
+    </ThemeProvider>
   );
 }
 
