@@ -1,0 +1,17 @@
+import { ThemeProvider } from '@emotion/react';
+import Navbar from './components/Navbar';
+
+
+function App() {
+  <ThemeProvider>
+
+  </ThemeProvider>
+  return (
+    <div className="app">
+      <Navbar />
+      
+    </div>
+  );
+}
+
+export default App;
